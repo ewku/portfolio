@@ -1,9 +1,9 @@
 /* ==========================================================================
    NOTE:
    This file is being used to activate and set options for all jQuery plugins
-   for this template. Please don't modify this file unless necessary. This will 
-   make it easy for you to upgrade your website with new template files easily 
-   when new version of this template will be available.    
+   for this template. Please don't modify this file unless necessary. This will
+   make it easy for you to upgrade your website with new template files easily
+   when new version of this template will be available.
    --------------------------------------------------------------------------
     TABLE OF CONTENT
    --------------------------------------------------------------------------
@@ -19,11 +19,11 @@
    ========================================================================== */
 
 jQuery(document).ready( function($) {
-	
+
 	'use strict';
-	
+
 	var document_body = $(document.body);
-	
+
 	/*  01 - Main Navigation */
 	document_body.on( 'click', '.main-nav ul li .fa', function(){
 		var $this = $(this);
@@ -38,22 +38,22 @@ jQuery(document).ready( function($) {
 		$(this).toggleClass( 'btn-cross' );
 		$('.header').toggleClass( 'toggle' );
 	});
-	
+
 	/* 02 - Portfolio Filter Menu */
 	document_body.on( 'click', '#filter-menu-toggle', function(){
 		$(this).toggleClass( 'btn-cross' ).next().slideToggle();
 	});
-	
+
 	/* 03 - Scroll to Next Section Button */
 	$('.scroll-btn').on('click', function(e) {
 		e.preventDefault();
 		$('html, body').animate({
 			scrollTop: $($(this).attr('href')).offset().top}, 800, 'linear');
 	});
-	
+
 	/* 04 - Portfolio Init */
 	$('#projects-wrap').mixItUp();
-	
+
 	/* 05 - Carousel */
 	$(".owl-carousel").owlCarousel({
 		items: 1,
@@ -63,7 +63,7 @@ jQuery(document).ready( function($) {
 		loop: true,
 		dots:true
 	});
-	
+
 	/* 06 - Back to Top Button */
 	var offset = 300,
 	offset_opacity = 1200,
@@ -71,7 +71,7 @@ jQuery(document).ready( function($) {
 	$back_to_top = $('.go-top');
 	$(window).scroll(function(){
 		( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
-		if( $(this).scrollTop() > offset_opacity ) { 
+		if( $(this).scrollTop() > offset_opacity ) {
 			$back_to_top.addClass('cd-fade-out');
 		}
 	});
@@ -82,40 +82,40 @@ jQuery(document).ready( function($) {
 		 	}, scroll_top_duration
 		);
 	});
-	
+
 	/* 07 - Popup (lightbox) */
 	$('.lightbox').magnificPopup({
-		removalDelay: 300, 		
+		removalDelay: 300,
 		mainClass: 'mfp-with-zoom'
 	});
 	$('.lightbox-gallery').magnificPopup({
-		removalDelay: 300, 		
+		removalDelay: 300,
 		mainClass: 'mfp-with-zoom',
 		gallery:{
 			enabled:true
 		}
 	});
-	
+
 	/* 08 - Responsive Video */
 	$(".responsive-video").fitVids();
-	
+
 	/* 09 - Mailchimp Settings	*/
 	$('#mailchimp').ajaxChimp({
 		callback: mailchimpCallback,
 		url: "http://oscodo.us9.list-manage.com/subscribe/post?u=aef5e76b30521b771cf866464&amp;id=f9f9e8db45"
 		//replace above url with your own mailchimp post url inside the "".
 		//to learn how to get your own URL, please check documentation file.
-	});	
+	});
 	function mailchimpCallback(resp) {
 		 if (resp.result === 'success') {
 			$('#mailchimp .subscription-success').html('<i class="icon_check_alt2"></i>' + resp.msg).fadeIn(1000);
 			$('#mailchimp .subscription-error').fadeOut(500);
-			
+
 		} else if(resp.result === 'error') {
 			$('#mailchimp .subscription-success').fadeOut(500);
 			$('#mailchimp .subscription-error').html('<i class="icon_close_alt2"></i>' + resp.msg).fadeIn(1000);
-		}  
+		}
 	}
-	
-	
+
+
 });
