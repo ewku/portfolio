@@ -117,5 +117,6 @@ jQuery(document).ready( function($) {
 		}
 	}
 
+	$("#reveal_casestudy").click(function(){ $("#casestudy").toggle(500); });
 
 });
