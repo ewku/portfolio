@@ -519,7 +519,7 @@ a.label:hover { color:#fff; }
 	.header { left:0; right:auto; border:none; }
 	.body-wrapper { padding-left:240px; }
 	.nav-toggle { display:none; }
-	.section { padding:60px; }
+	.section { padding:60px; padding-top: 7px; }
 	.inner-banner { padding:80px 60px; }
 	h1, .h1 { font-size:48px; }
 	h2, .h2 { font-size:36px; }
